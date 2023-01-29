@@ -7,8 +7,8 @@ import { getProducts, getProduct } from '../controllers/Products.js';
 const router = express.Router();
 router.use(cors());
 router.use(express.json());
-router.get('/produtos', getProducts)
-router.get('/produtos/:id', getProduct)
+router.get('/produtos', getProducts);
+router.get('/produtos/:id', getProduct);
 router.post('/register', register);
 router.post('/authenticate', authenticate);
 router.use(auth);
