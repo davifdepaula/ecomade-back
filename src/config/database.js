@@ -16,4 +16,4 @@ try {
   console.log('Deu erro no server');
 }
 
-export default db;
+export default db
