@@ -10,6 +10,8 @@ export default async function auth(req, res, next) {
 
   if (!session || dayjs().isAfter(session.expires_at)) return res.sendStatus(401);
 
-  res.locals.authId = session.user_id;
+  const user = await db.collection('users').findOne({ _id: session.user_id });
+
+  res.locals.auth = user;
   return next();
 }
