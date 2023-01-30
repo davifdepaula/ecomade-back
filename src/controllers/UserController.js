@@ -8,9 +8,10 @@ export async function getMyAddress(req, res) {
     const user = res.locals.auth;
 
     const address = await db.collection('userAddress').findOne({ user_id: user._id });
-
-    delete address._id;
-    delete address.user_id;
+    if(address){
+      delete address._id;
+      delete address.user_id;
+    }
 
     return res.send(address);
   } catch (err) {
